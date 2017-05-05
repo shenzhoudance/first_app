@@ -13,4 +13,5 @@ namespace :admin do
      end
    end
 
+resources :carts
 end
