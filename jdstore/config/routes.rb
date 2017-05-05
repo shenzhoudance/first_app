@@ -21,4 +21,5 @@ namespace :admin do
      end
 
      resources :cart_items
+     resources :orders
 end
