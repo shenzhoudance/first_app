@@ -1,7 +1,8 @@
 class Admin::ProductsController < ApplicationController
-  def index
-   @products = Product.all
- end
+  layout "admin"
+
+  before_action :authenticate_user!
+  before_action :admin_required
 
 def new
     @product = Product.new
