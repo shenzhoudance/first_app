@@ -8,5 +8,7 @@ class Cart < ApplicationRecord
       ci.quantity = 1
       ci.save
     end
-
+     def clean!
+       cart_items.destroy_all
+     end
 end
