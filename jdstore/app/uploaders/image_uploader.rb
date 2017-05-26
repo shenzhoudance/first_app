@@ -10,7 +10,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
 
-  storage :file
+   storage :file
+   # storage :file
+
+   storage :qiniu
   # storage :fog
 
 
@@ -32,4 +35,4 @@ class ImageUploader < CarrierWave::Uploader::Base
    process resize_to_fill: [400,400]
  end
 
- end
+end
