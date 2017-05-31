@@ -8,12 +8,14 @@ class ImageUploader < CarrierWave::Uploader::Base
  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-
-
-   # storage :file
-   storage :qiniu
+  # storage :file
   # storage :fog
 
+  if Rails.env.production? #远端
+     storage :qiniu
+   elsif Rails.env.development? #本地
+     storage :file
+   end
 
   # Override the directory where uploaded files will be stored.
 
@@ -32,5 +34,4 @@ class ImageUploader < CarrierWave::Uploader::Base
  version :medium do
    process resize_to_fill: [400,400]
  end
-
 end
